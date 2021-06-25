@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+$(function(){
+    var socket = io("http://localhost:3000/",{
+  cors: {
+    origin: "*",
+    credentials: true
+  }
+});
+    socket.emit("login", {msg:"hello"});
+    socket.on("fromServer", function(data){
+        console.log(data.msg);
+    });
+})
+</script>
+</head>
+<body>
+index
+</body>
+</html>
